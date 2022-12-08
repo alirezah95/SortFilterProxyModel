@@ -38,6 +38,7 @@ Thumbs.db
 
 # qtcreator generated files
 *.pro.user*
+*.user
 
 # qtcreator shadow builds
 build-SortFilterProxyModel-*
@@ -74,4 +75,4 @@ build-SortFilterProxyModel-*
 # --------
 *.dll
 *.exe
-
+*.user

@@ -4,6 +4,12 @@
 #include <QList>
 #include <QQmlListProperty>
 
+#if QT_VERSION_MAJOR > 5
+using lp_sizetype = qsizetype;
+#else
+using lp_sizetype = int;
+#endif
+
 namespace qqsfpm {
 
 class ProxyRole;
@@ -29,8 +35,8 @@ private:
     virtual void onProxyRolesCleared() = 0;
 
     static void append_proxyRole(QQmlListProperty<ProxyRole>* list, ProxyRole* proxyRole);
-    static int count_proxyRole(QQmlListProperty<ProxyRole>* list);
-    static ProxyRole* at_proxyRole(QQmlListProperty<ProxyRole>* list, int index);
+    static lp_sizetype count_proxyRole(QQmlListProperty<ProxyRole>* list);
+    static ProxyRole* at_proxyRole(QQmlListProperty<ProxyRole>* list, lp_sizetype index);
     static void clear_proxyRoles(QQmlListProperty<ProxyRole>* list);
 };
 

@@ -36,13 +36,13 @@ Item {
         },
         StringSorter {
             property string tag: "ignorePunctuation"
-            property var expectedValues: ["a-a", "aa", "b-b", "b-c", "b.c", "bc"]
+            property var expectedValues: ["aa", "a-b", "b-b", "b.b", "b-c", "bc"]
             roleName: "punctuationRole"
             ignorePunctation: true
         },
         StringSorter {
             property string tag: "doNotIgnorePunctuation"
-            property var expectedValues: ["aa", "a-a", "b.c", "b-b", "bc", "b-c"]
+            property var expectedValues: ["a-b", "aa", "b-b", "b-c", "b.b", "bc"]
             roleName: "punctuationRole"
             ignorePunctation: false
         }
@@ -50,12 +50,12 @@ Item {
 
     ListModel {
         id: dataModel
-        ListElement { accentRole: "héhé"; numericRole: "a20";   caseRole: "b"; punctuationRole: "a-a"}
+        ListElement { accentRole: "héhé"; numericRole: "a20";   caseRole: "b"; punctuationRole: "a-b"}
         ListElement { accentRole: "hehe"; numericRole: "a1";    caseRole: "A"; punctuationRole: "aa"}
         ListElement { accentRole: "haha"; numericRole: "a100";  caseRole: "a"; punctuationRole: "b-c"}
-        ListElement { accentRole: "huhu"; numericRole: "a99";   caseRole: "c"; punctuationRole: "b.c"}
+        ListElement { accentRole: "huhu"; numericRole: "a99";   caseRole: "c"; punctuationRole: "b-b"}
         ListElement { accentRole: "hihi"; numericRole: "a30";   caseRole: "Z"; punctuationRole: "bc"}
-        ListElement { accentRole: "hähä"; numericRole: "a1000"; caseRole: "z"; punctuationRole: "b-b"}
+        ListElement { accentRole: "hähä"; numericRole: "a1000"; caseRole: "z"; punctuationRole: "b.b"}
     }
 
     SortFilterProxyModel {

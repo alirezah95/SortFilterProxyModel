@@ -6,6 +6,12 @@
 #include <qqml.h>
 #include <QPointer>
 
+#if QT_VERSION_MAJOR > 5
+using lp_sizetype = qsizetype;
+#else
+using lp_sizetype = int;
+#endif
+
 namespace qqsfpm {
 
 class Filter;
@@ -31,8 +37,8 @@ private:
     virtual void onFiltersCleared() = 0;
 
     static void append_filter(QQmlListProperty<Filter>* list, Filter* filter);
-    static int count_filter(QQmlListProperty<Filter>* list);
-    static Filter* at_filter(QQmlListProperty<Filter>* list, int index);
+    static lp_sizetype count_filter(QQmlListProperty<Filter>* list);
+    static Filter* at_filter(QQmlListProperty<Filter>* list, lp_sizetype index);
     static void clear_filters(QQmlListProperty<Filter>* list);
 };
 
