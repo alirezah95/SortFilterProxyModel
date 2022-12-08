@@ -6,6 +6,12 @@
 #include <qqml.h>
 #include <QPointer>
 
+#if QT_VERSION_MAJOR > 5
+using lp_sizetype = qsizetype;
+#else
+using lp_sizetype = int;
+#endif
+
 namespace qqsfpm {
 
 class Sorter;
@@ -31,8 +37,8 @@ private:
     virtual void onSortersCleared() = 0;
 
     static void append_sorter(QQmlListProperty<Sorter>* list, Sorter* sorter);
-    static qsizetype count_sorter(QQmlListProperty<Sorter>* list);
-    static Sorter* at_sorter(QQmlListProperty<Sorter>* list, qsizetype index);
+    static lp_sizetype count_sorter(QQmlListProperty<Sorter>* list);
+    static Sorter* at_sorter(QQmlListProperty<Sorter>* list, lp_sizetype index);
     static void clear_sorters(QQmlListProperty<Sorter>* list);
 };
 

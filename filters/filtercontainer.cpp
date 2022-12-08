@@ -60,13 +60,13 @@ void FilterContainer::append_filter(QQmlListProperty<Filter>* list, Filter* filt
     that->appendFilter(filter);
 }
 
-qsizetype FilterContainer::count_filter(QQmlListProperty<Filter>* list)
+lp_sizetype FilterContainer::count_filter(QQmlListProperty<Filter>* list)
 {
     auto* filters = static_cast<QList<Filter*>*>(list->data);
     return filters->count();
 }
 
-Filter* FilterContainer::at_filter(QQmlListProperty<Filter>* list, qsizetype index)
+Filter* FilterContainer::at_filter(QQmlListProperty<Filter>* list, lp_sizetype index)
 {
     auto* filters = static_cast<QList<Filter*>*>(list->data);
     return filters->at(index);

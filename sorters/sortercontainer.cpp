@@ -60,13 +60,13 @@ void SorterContainer::append_sorter(QQmlListProperty<Sorter>* list, Sorter* sort
     that->appendSorter(sorter);
 }
 
-qsizetype SorterContainer::count_sorter(QQmlListProperty<Sorter>* list)
+lp_sizetype SorterContainer::count_sorter(QQmlListProperty<Sorter>* list)
 {
     auto* sorters = static_cast<QList<Sorter*>*>(list->data);
     return sorters->count();
 }
 
-Sorter* SorterContainer::at_sorter(QQmlListProperty<Sorter>* list, qsizetype index)
+Sorter* SorterContainer::at_sorter(QQmlListProperty<Sorter>* list, lp_sizetype index)
 {
     auto* sorters = static_cast<QList<Sorter*>*>(list->data);
     return sorters->at(index);

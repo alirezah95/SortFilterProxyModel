@@ -43,13 +43,13 @@ void ProxyRoleContainer::append_proxyRole(QQmlListProperty<ProxyRole>* list, Pro
     that->appendProxyRole(proxyRole);
 }
 
-qsizetype ProxyRoleContainer::count_proxyRole(QQmlListProperty<ProxyRole>* list)
+lp_sizetype ProxyRoleContainer::count_proxyRole(QQmlListProperty<ProxyRole>* list)
 {
     auto* ProxyRoles = static_cast<QList<ProxyRole*>*>(list->data);
     return ProxyRoles->count();
 }
 
-ProxyRole* ProxyRoleContainer::at_proxyRole(QQmlListProperty<ProxyRole>* list, qsizetype index)
+ProxyRole* ProxyRoleContainer::at_proxyRole(QQmlListProperty<ProxyRole>* list, lp_sizetype index)
 {
     auto* ProxyRoles = static_cast<QList<ProxyRole*>*>(list->data);
     return ProxyRoles->at(index);
