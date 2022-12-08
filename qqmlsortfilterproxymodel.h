@@ -106,7 +106,11 @@ protected:
                 const QModelIndex &source_right) const override;
 
 protected Q_SLOTS:
+#if QT_VERSION_MAJOR > 5
   void resetInternalData() override;
+#else
+  void resetInternalData();
+#endif
 
 private Q_SLOTS:
   void queueInvalidateFilter();
