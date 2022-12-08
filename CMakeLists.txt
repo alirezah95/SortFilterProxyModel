@@ -3,7 +3,7 @@ project(qqmlsortfilterproxymodel)
 
 set(CMAKE_CXX_STANDARD 17)
 
-find_package(Qt6 REQUIRED
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS
     Core
     Qml
     )
@@ -46,8 +46,8 @@ add_library(SortFilterProxyModel OBJECT
 
 target_include_directories(SortFilterProxyModel PUBLIC
     ${CMAKE_CURRENT_LIST_DIR}
-    $<TARGET_PROPERTY:Qt6::Core,INTERFACE_INCLUDE_DIRECTORIES>
-    $<TARGET_PROPERTY:Qt6::Qml,INTERFACE_INCLUDE_DIRECTORIES>
+    $<TARGET_PROPERTY:Qt${QT_VERSION_MAJOR}::Core,INTERFACE_INCLUDE_DIRECTORIES>
+    $<TARGET_PROPERTY:Qt${QT_VERSION_MAJOR}::Qml,INTERFACE_INCLUDE_DIRECTORIES>
     )
 
 target_compile_options(SortFilterProxyModel PRIVATE -fPIC)
