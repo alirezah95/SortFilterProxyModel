@@ -46,6 +46,13 @@ add_library(SortFilterProxyModel OBJECT
     proxyroles/filterrole.cpp
     )
 
+if (MSVC AND QT_VERSION_MAJOR GREATER_EQUAL 6)
+    target_compile_options(SortFilterProxyModel PRIVATE
+        "/Zc:__cplusplus"
+        "/permissive-"
+    )
+endif()
+
 target_include_directories(SortFilterProxyModel PUBLIC
     ${CMAKE_CURRENT_LIST_DIR}
     $<TARGET_PROPERTY:Qt${QT_VERSION_MAJOR}::Core,INTERFACE_INCLUDE_DIRECTORIES>
