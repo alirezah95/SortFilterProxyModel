@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.14)
 project(qqmlsortfilterproxymodel)
 
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS
     Core
@@ -49,5 +51,3 @@ target_include_directories(SortFilterProxyModel PUBLIC
     $<TARGET_PROPERTY:Qt${QT_VERSION_MAJOR}::Core,INTERFACE_INCLUDE_DIRECTORIES>
     $<TARGET_PROPERTY:Qt${QT_VERSION_MAJOR}::Qml,INTERFACE_INCLUDE_DIRECTORIES>
     )
-
-target_compile_options(SortFilterProxyModel PRIVATE -fPIC)
